@@ -1,7 +1,42 @@
-body{
-  margin:0;
+body {
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(135deg,#4facfe,#00f2fe);
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #007cf0 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Sparkles container */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: transparent;
+  box-shadow:
+    20vw 10vh 2px 1px #fff,
+    40vw 40vh 1.5px 1px #aaf,
+    60vw 15vh 2px 1.5px #ccf,
+    80vw 50vh 3px 2px #eef,
+    25vw 75vh 1.5px 1px #dde,
+    70vw 80vh 2px 1px #bbf,
+    50vw 30vh 2.5px 1.5px #ddf;
+  animation: sparkleBlink 3s linear infinite;
+}
+
+@keyframes sparkleBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 .container{
@@ -11,13 +46,14 @@ body{
   align-items:center;
 }
 
-.card{
-  background:white;
-  padding:40px;
-  width:400px;
-  text-align:center;
-  border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+.card {
+  background: #ffffff;
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+  padding: 40px;
+  width: 400px;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .profile-img{
